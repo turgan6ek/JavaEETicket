@@ -10,6 +10,7 @@ import java.io.IOException;
 public class TicketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("tickets.jsp").forward(req, resp);
         super.doPost(req, resp);
     }
 }
