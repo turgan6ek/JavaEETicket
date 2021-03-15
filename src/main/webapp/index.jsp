@@ -12,7 +12,7 @@
 <body>
     <jsp:include page="header.jsp"></jsp:include>
     <div>
-
+        <h1 class="text-center">Welcome to KinoPark</h1>
     </div>
 </body>
 </html>
