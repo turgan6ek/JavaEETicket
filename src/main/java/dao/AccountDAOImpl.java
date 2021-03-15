@@ -1,34 +1,40 @@
 package dao;
 
 import ConfigDB.ConnProvider;
-import ConfigDB.ProviderDB;
 import entity.Account;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class AccountDAOImpl implements AccountDao{
 
     static Connection conn;
     static PreparedStatement pst;
-
+    private static final String INSERT_SQL = "INSERT INTO accounts(username, password , email, phone_num, rolenum) values(?, ?, ?, ?, ?) ";
     @Override
-    public int insertAccount(Account acc) {
+    public void insertAccount(Account acc) {
         int status = 0;
-        try {
-            conn = ConnProvider.getConn();
-            pst = conn.prepareStatement("insert into accounts (username, password, email, phone_num, rolenum) values (?,?,?,?,?)");
-            pst.setString(1, acc.getUsername());
-            pst.setString(2, acc.getPassword());
-            pst.setString(3, acc.getEmail());
-            pst.setString(4, acc.getPhone_num());
-            pst.setInt(5,acc.getRolenum());
+        if (acc != null) {
+            try (PreparedStatement ps = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setString(1, acc.getUsername());
+                ps.setString(2, acc.getPassword());
+                ps.setString(3, acc.getEmail());
+                ps.setString(4, acc.getPassword());
+                ps.setInt(5, 2);
+                int numRowsAffected = ps.executeUpdate();
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        acc.setUser_id(rs.getInt(1));
+                    }
+                } catch (Exception s) {
+                    s.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return 0;
     }
 
     @Override
