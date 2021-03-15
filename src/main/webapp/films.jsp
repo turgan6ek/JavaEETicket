@@ -26,19 +26,19 @@
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="<%printWriter.println(film.getTrailer());%>" alt="Card image cap">
                 <div class="card-body">
+                    <h4>
+                        <%printWriter.println(film.getFilmName());%>
+                    </h4>
                     <h5>
-                        <%printWriter.println(film.getTrailer());%>
+                        <%printWriter.println(" Duration: " + film.getDuration() + " min");%>
                     </h5>
                     <h5>
-                        <%printWriter.println(film.getTrailer());%>
+                        <%printWriter.println(" Genre: " + film.getGenre() + " min");%>
                     </h5>
                     <h5>
-                        <%printWriter.println(film.getTrailer());%>
+                        <%printWriter.println(" Pegi: " + film.getPegi() + " min");%>
                     </h5>
-                    <h5>
-                        <%printWriter.println(film.getTrailer());%>
-                    </h5>
-                    <p class="card-text"><%System.out.printf(film.getTrailer());%></p>
+                    <p class="card-text"><%System.out.printf(film.getDescription());%></p>
                 </div>
             </div>
             <%
