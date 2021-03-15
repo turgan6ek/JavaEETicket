@@ -211,8 +211,8 @@
                 <div class="dropdown-menu">
                     <%
                     if (username != "Guest") {%>
-                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
-                    <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Tickets</a>
+                    <a href="profile.jsp" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                    <a href="tickets.jsp" class="dropdown-item"><i class="fa fa-calendar-o"></i> Tickets</a>
                     <div class="divider dropdown-divider"></div>
 
                     <a href="logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>

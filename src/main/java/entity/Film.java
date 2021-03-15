@@ -24,7 +24,7 @@ public class Film {
     public int getFilmID() {
         return filmID;
     }
-
+    public Film(){}
     public void setFilmID(int filmID) {
         this.filmID = filmID;
     }
