@@ -36,4 +36,9 @@ public class FilmDaoImpl implements FilmDao{
         }
         return films;
     }
+
+    @Override
+    public void insertAFilm(Film film) {
+
+    }
 }

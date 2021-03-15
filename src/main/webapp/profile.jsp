@@ -16,9 +16,9 @@
     %>
     <jsp:include page="header.jsp"></jsp:include>
     <div style="margin: 50px auto; width: 80%; border: #000000 solid 1px">
-        <h3>Username: <% print.print(account.getUsername()); %></h3>
-        <h3>Phone Number: <% print.print(account.getPhone_num()); %></h3>
-        <h3>Email: <% print.print(account.getEmail()); %></h3>
+        <h3>Username: <%=account.getUsername()%></h3>
+        <h3>Phone Number: <%=account.getPhone_num()%></h3>
+        <h3>Email: <%=account.getEmail()%></h3>
     </div>
 </body>
 </html>
