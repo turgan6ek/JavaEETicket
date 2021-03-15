@@ -47,7 +47,7 @@
                             film.getDescription()
                         %></p>
                     <div>
-                        <form>
+                        <form action="">
                             <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="login" > Buy ticket </button></a>
                         </form>
 
