@@ -1,5 +1,9 @@
 package servlet;
 
+import dao.AccountDAOImpl;
+import dao.AccountDao;
+import entity.Account;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +16,18 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        AccountDao accountDao = new AccountDAOImpl();
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        Account acc = accountDao.getAccount(username, password);
+        if (acc != null) {
+            req.setAttribute("username", acc.getUsername());
+            req.getRequestDispatcher("index.jsp").forward(req,resp);
+        }
+        else {
+            req.setAttribute("message", "Username or Password is incorrect!!!");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+        }
         super.doPost(req, resp);
     }
 }

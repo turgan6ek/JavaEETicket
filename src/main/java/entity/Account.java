@@ -1,6 +1,6 @@
 package entity;
 public class Account {
-    private int userID;
+    private Integer userID;
     private String username;
     private String password;
     private String email;
@@ -9,6 +9,22 @@ public class Account {
 
     public int getUser_id() {
         return userID;
+    }
+
+    public Account() {
+    }
+
+    public Account(Integer userID, String username, String password, String email, String phone_num, int rolenum) {
+        this.userID = userID;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phone_num = phone_num;
+        this.rolenum = 2;
+    }
+
+    public Account(String username, String password, String email, String phone_num, int rolenum) {
+        this(null, username, password, email, phone_num, rolenum);
     }
 
     public void setUser_id(int userID) {

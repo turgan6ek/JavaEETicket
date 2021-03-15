@@ -1,4 +1,8 @@
 package dao;
 
-public class AccountDao {
+import entity.Account;
+
+public interface AccountDao {
+    public int insertAccount(Account acc);
+    public Account getAccount(String username, String password);
 }

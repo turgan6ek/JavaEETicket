@@ -1,7 +1,7 @@
 package entity;
 
 public class Film {
-    private int filmID;
+    private Integer filmID;
     private String filmName;
     private int duration;
     private String genre;
@@ -9,6 +9,18 @@ public class Film {
     private String description;
     private String trailer;
 
+    public Film(Integer filmID, String filmName, int duration, String genre, String pegi, String description, String trailer) {
+        this.filmID = filmID;
+        this.filmName = filmName;
+        this.duration = duration;
+        this.genre = genre;
+        this.pegi = pegi;
+        this.description = description;
+        this.trailer = trailer;
+    }
+    public Film(String filmName, int duration, String genre, String pegi, String description, String trailer) {
+        this(null, filmName, duration, genre, pegi, description, trailer);
+    }
     public int getFilmID() {
         return filmID;
     }

@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: turga
-  Date: 14.03.2021
-  Time: 23:52
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html lang="en">
@@ -194,7 +188,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a href="#" class="navbar-brand"><i class="fa fa-film"></i>Kino<b>Park</b></a>
+    <a href="index.jsp" class="navbar-brand"><i class="fa fa-film"></i>Kino<b>Park</b></a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>

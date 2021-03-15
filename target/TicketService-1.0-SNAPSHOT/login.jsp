@@ -93,6 +93,26 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" required="required">
             </div>
         </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Login </button>
+        </div> <!-- form-group// -->
+        <%
+            String message = (String) request.getAttribute("message");
+            if (message != null) {
+
+        %>
+        <div class="alert alert-danger" role="alert">
+            ${message}
+        </div>
+        <%
+            }
+            else {
+        %>
+
+        <%
+            }
+        %>
+
     </form>
     <p class="text-center text-muted small">Don't have an account? <a href="register.jsp">Sign up here!</a></p>
 </div>
