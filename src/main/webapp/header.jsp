@@ -224,8 +224,6 @@
                     <a href="register.jsp" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Register</a>
                     <%}
                     %>
-
-
                     </div>
             </div>
         </div>

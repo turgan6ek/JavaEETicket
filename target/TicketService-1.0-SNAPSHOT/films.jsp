@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.FilmDao" %>
 <%@ page import="dao.FilmDaoImpl" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,24 +17,29 @@
                 FilmDao filmDao = new FilmDaoImpl();
                 List<Film> filmList = new ArrayList<>();
                 filmList = filmDao.getFilms();
+                response.setContentType("text/html");
+
+                // Actual logic goes here.
+                PrintWriter printWriter = response.getWriter();
                 for(Film film: filmList) {
             %>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="<%System.out.printf(film.getTrailer());%>" alt="Card image cap">
+                <img class="card-img-top" src="<%film.getTrailer();%>" alt="Card image cap">
                 <div class="card-body">
+
+                    <h4>
+                        Name : <%printWriter.print(film.getFilmName());%>
+                    </h4>
                     <h5>
-                        <%System.out.printf(film.getTrailer());%>
+                        Duration : <%film.getDuration();%>
                     </h5>
                     <h5>
-                        <%System.out.printf(film.getTrailer());%>
+                        Genre :<%film.getGenre();%>
                     </h5>
                     <h5>
-                        <%System.out.printf(film.getTrailer());%>
+                        Pegi : <%film.getPegi();%>
                     </h5>
-                    <h5>
-                        <%System.out.printf(film.getTrailer());%>
-                    </h5>
-                    <p class="card-text"><%System.out.printf(film.getTrailer());%></p>
+                    <p class="card-text"><%film.getDescription();%></p>
                 </div>
             </div>
             <%

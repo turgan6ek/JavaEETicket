@@ -24,21 +24,22 @@
                 for(Film film: filmList) {
             %>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="<%printWriter.println(film.getTrailer());%>" alt="Card image cap">
+                <img class="card-img-top" src="<%film.getTrailer();%>" alt="Card image cap">
                 <div class="card-body">
+
                     <h4>
-                        <%printWriter.println(film.getFilmName());%>
+                        Name : <%printWriter.print(film.getFilmName());%>
                     </h4>
                     <h5>
-                        <%printWriter.println(" Duration: " + film.getDuration() + " min");%>
+                        Duration : <%film.getDuration();%>
                     </h5>
                     <h5>
-                        <%printWriter.println(" Genre: " + film.getGenre() + " min");%>
+                        Genre :<%film.getGenre();%>
                     </h5>
                     <h5>
-                        <%printWriter.println(" Pegi: " + film.getPegi() + " min");%>
+                        Pegi : <%film.getPegi();%>
                     </h5>
-                    <p class="card-text"><%System.out.printf(film.getDescription());%></p>
+                    <p class="card-text"><%film.getDescription();%></p>
                 </div>
             </div>
             <%

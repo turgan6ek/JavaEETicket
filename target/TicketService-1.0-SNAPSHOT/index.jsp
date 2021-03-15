@@ -11,5 +11,10 @@
 </head>
 <body>
     <jsp:include page="header.jsp"></jsp:include>
+    <div style="width: 80%; margin: 50px auto">
+        <h1 class="text-center">Welcome to KinoPark</h1>
+        <h1 >Films available: </h1>
+        <jsp:include page="films.jsp"></jsp:include>
+    </div>
 </body>
 </html>
