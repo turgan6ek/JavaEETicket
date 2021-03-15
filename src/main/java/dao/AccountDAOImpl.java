@@ -34,10 +34,9 @@ public class AccountDAOImpl implements AccountDao{
     @Override
     public Account getAccount(String username, String password) {
         Account account = new Account();
-
         try {
             conn = ConnProvider.getConn();
-            pst = conn.prepareStatement("SELECT * FROM Accounts WHERE username = ? and password = ?");
+            pst = conn.prepareStatement("SELECT * FROM accounts WHERE username = ? and password = ?");
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
@@ -50,10 +49,28 @@ public class AccountDAOImpl implements AccountDao{
                 account.setPhone_num(rs.getString(5));
                 account.setRolenum(rs.getInt(6));
             }
+            System.out.println(account.getUsername());
         }
         catch (Exception e) {
             System.out.println(e);
         }
         return account;
+    }
+
+    @Override
+    public boolean ifExists(String username) {
+        Account account = new Account();
+
+        try {
+            conn = ConnProvider.getConn();
+            pst = conn.prepareStatement("SELECT * FROM accounts WHERE username = ?");
+            pst.setString(1, username);
+            ResultSet rs = pst.executeQuery();
+            return rs.next();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
     }
 }

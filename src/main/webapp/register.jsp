@@ -54,12 +54,12 @@
         <article class="card-body mx-auto" style="max-width: 400px;">
             <h4 class="card-title mt-3 text-center">Create Account</h4>
 
-            <form action="register">
+            <form action="register" method="post">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="username" class="form-control" placeholder="Full name" type="text">
+                    <input name="username" class="form-control" placeholder="Username" type="text">
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -89,6 +89,22 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Create Account  </button>
                 </div> <!-- form-group// -->
+                <%
+                    String message = (String) request.getAttribute("message");
+                    if (message != null) {
+
+                %>
+                <div class="alert alert-danger" role="alert">
+                    ${message}
+                </div>
+                <%
+                }
+                else {
+                %>
+
+                <%
+                    }
+                %>
                 <p class="text-center">Have an account? <a href="login.jsp">Log In</a> </p>
             </form>
         </article>
