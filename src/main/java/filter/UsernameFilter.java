@@ -20,15 +20,7 @@ public class UsernameFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
-        String username = req.getParameter("username");
-        if (accountDao.ifExists(username)) {
-            System.out.println("EXISTS");
-            req.setAttribute("message", "Such username is already exists");
-            req.getRequestDispatcher("register.jsp").forward(servletRequest, servletResponse);
-        }else {
-            System.out.println("DONT EXISTS");
-            filterChain.doFilter(servletRequest, servletResponse);
-        }
+
     }
 
     @Override
