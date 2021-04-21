@@ -47,10 +47,8 @@
                             film.getDescription()
                         %></p>
                     <div>
-                        <form>
-                            <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Buy ticket </button></a>
-                        </form>
-
+                            <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="login" > Buy ticket </button></a>
+                       
                     </div> <!-- form-group// -->
                 </div>
             </div>
