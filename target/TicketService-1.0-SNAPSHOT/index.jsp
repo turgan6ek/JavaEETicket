@@ -10,7 +10,7 @@
     </head>
 </head>
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
+<%@include file="header.jsp"%>
     <div style="width: 80%; margin: 50px auto">
         <h1 class="text-center">Welcome to KinoPark</h1>
         <p>

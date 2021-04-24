@@ -69,7 +69,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<%@include file="header.jsp"%>
 <div class="login-form">
     <form action="login" method="post">
         <h2 class="text-center">Sign in</h2>

@@ -47,7 +47,7 @@
     </head>
 
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<%@include file="header.jsp"%>
 <div class="container">
 
     <div class="card bg-light">

@@ -13,17 +13,13 @@
     <title>Films</title>
 </head>
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
+<%@include file="header.jsp"%>
     <div style="margin: 50px auto; width: 80%">
         <div class="row row-cols-1 row-cols-md-3">
-            <%
+           <%
                 FilmDao filmDao = new FilmDaoImpl();
                 List<Film> filmList = new ArrayList<>();
                 filmList = filmDao.getFilms();
-                response.setContentType("text/html");
-                AccountDao accountDao = new AccountDAOImpl();
-                String username = (String) session.getAttribute("username");
-                Account account = accountDao.getAccount(username);
                 for(Film film: filmList) {
             %>
             <div class="card h-50 w-50" style="width: 18rem; margin: 20px">
@@ -47,7 +43,7 @@
                             film.getDescription()
                         %></p>
                     <div>
-                            <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="login" > Buy ticket </button></a>
+                            <a href="t"><button type="submit" class="btn btn-primary btn-block" name = "submit" value="login" > Buy ticket </button></a>
                        
                     </div> <!-- form-group// -->
                 </div>
@@ -58,7 +54,7 @@
 
         </div>
         <%
-            if (account.getRolenum() == 1) { %>
+            if (user.getRolenum() == 1) { %>
         <div class="form-group">
             <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Add Film </button></a>
         </div> <!-- form-group// -->

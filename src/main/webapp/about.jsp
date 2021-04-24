@@ -5,7 +5,7 @@
     <title>About</title>
 </head>
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
+    <%@include file="header.jsp"%>
     <div style="margin: auto; width: 80%;">
 
         <h2 class="text-center">KinoPark </h2>

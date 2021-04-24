@@ -200,17 +200,18 @@
             <a href="films.jsp" class="nav-item nav-link active"><i class="fa fa-film"></i><span>Films</span></a>
             <a href="about.jsp" class="nav-item nav-link active"><i class="fa fa-info"></i><span>About</span></a>
             <div class="nav-item dropdown" style="padding-top: 5px">
+                <jsp:useBean id="user" scope="session" class="entity.Account"></jsp:useBean>
+                <%! String username;%>
                 <%
-                    String username = (String) session.getAttribute("username");
-
-                    if (username == null) {
-                        session.setAttribute("username", "Guest");
+                    username = user.getUsername();
+                    if (user.getUsername() == null) {
+                        username = "Guest";
                     }
                 %>
-                <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action">${username}<b class="caret"></b></a>
+                <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><%=username%><b class="caret"></b></a>
                 <div class="dropdown-menu">
                     <%
-                    if (username != "Guest") {%>
+                    if (user.getUsername() != null) {%>
                     <a href="profile.jsp" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
                     <a href="tickets.jsp" class="dropdown-item"><i class="fa fa-calendar-o"></i> Tickets</a>
                     <div class="divider dropdown-divider"></div>

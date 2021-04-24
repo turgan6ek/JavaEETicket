@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         if (acc != null && acc.getUsername() != null) {
             req.setAttribute("username", acc.getUsername());
             HttpSession session = req.getSession();
-            session.setAttribute("username", username);
+            session.setAttribute("user", acc);
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
         else {
