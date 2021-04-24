@@ -8,7 +8,6 @@
     <title>Profile</title>
 </head>
 <body>
-    <jsp:useBean id="user" scope="session" class="entity.Account"></jsp:useBean>
     <%@include file="header.jsp"%>
     <div style="margin: 50px auto; width: 80%; border: #000000 solid 1px">
         <h3>Username: <%=user.getUsername()%></h3>
