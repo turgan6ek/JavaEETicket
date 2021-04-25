@@ -11,57 +11,38 @@
 <html>
 <head>
     <title>Films</title>
+    <link href="css/film.css" rel="stylesheet">
 </head>
 <body>
 <%@include file="header.jsp"%>
-    <div style="margin: 50px auto; width: 80%">
-        <div class="row row-cols-1 row-cols-md-3">
-           <%
-                FilmDao filmDao = new FilmDaoImpl();
-                List<Film> filmList = new ArrayList<>();
-                filmList = filmDao.getFilms();
-                for(Film film: filmList) {
-            %>
-            <div class="card h-50 w-50" style="width: 18rem; margin: 20px">
-                <img class="card-img-top" src="<%=film.getTrailer()%>" alt="Card image cap">
-                <div class="card-body">
-
-                    <h4>
-                        Name : <%=film.getFilmName()%>
-                    </h4>
-                    <h5>
-                        Duration : <%=film.getDuration()%>
-                    </h5>
-                    <h5>
-                        Genre :<%=film.getGenre()%>
-                    </h5>
-                    <h5>
-                        Pegi : <%=film.getPegi()%>
-                    </h5>
-                    <p class="card-text">
-                        <%=
-                            film.getDescription()
-                        %></p>
-                    <div>
-                            <a href="/film?id=<%=film.getFilmID()%>"><button type="submit" class="btn btn-primary btn-block" name = "submit" value="login" > See more </button></a>
-                       
-                    </div> <!-- form-group// -->
-                </div>
-            </div>
-            <%
-                }
-            %>
-
-        </div>
+<div style="margin: 50px auto; width: 80%">
+    <div class="row row-cols-1 row-cols-md-3">
         <%
-            if (user.getRolenum() == 1) { %>
-        <div class="form-group">
-            <a><button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Add Film </button></a>
-        </div> <!-- form-group// -->
+            FilmDao filmDao = new FilmDaoImpl();
+            List<Film> filmList;
+            filmList = filmDao.getFilms();
+            for(Film film: filmList) {
+        %>
+        <a href="/film?id=<%=film.getFilmID()%>">
+            <div class="profile-card-2"><img src="<%=film.getTrailer()%>" width="240" height="360">
+                <div class="profile-name"><%=film.getFilmName()%></div>
+                <div class="profile-username"><%=film.getGenre()%></div>
+            </div>
+        </a>
         <%
             }
         %>
 
     </div>
+    <%
+        if (user.getRolenum() == 1) { %>
+    <div class="form-group">
+        <a href="add.jsp"><button type="submit" class="btn btn-primary btn-block" name = "submit" value="register"> Add Film </button></a>
+    </div> <!-- form-group// -->
+    <%
+        }
+    %>
+
+</div>
 </body>
 </html>

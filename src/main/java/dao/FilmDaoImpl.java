@@ -41,4 +41,28 @@ public class FilmDaoImpl implements FilmDao{
     public void insertAFilm(Film film) {
 
     }
+
+    @Override
+    public Film getFilmByID(Integer id) {
+        Film film = new Film();
+        try {
+            conn = ConnProvider.getConn();
+            pst = conn.prepareStatement("SELECT * FROM films WHERE film_id = ?");
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                film.setFilmID(rs.getInt(1));
+                film.setFilmName(rs.getString(2));
+                film.setDuration(rs.getInt(3));
+                film.setGenre(rs.getString(4));
+                film.setPegi(rs.getString(5));
+                film.setDescription(rs.getString(6));
+                film.setTrailer(rs.getString(7));
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return film;
+    }
 }
