@@ -19,20 +19,35 @@
         }
     </style>
 </head>
-<body>
 <jsp:include page="header.jsp"></jsp:include>
-<br>
-<br>
-<br>
-<div class="card mb-3" style="width: 70%; margin: auto;">
-    <img class="card-img-top" src="<%=film.getTrailer()%>" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title"><%=film.getFilmName()%></h5>
-        <h6 class="card-subtitle mb-2">Genre: <%=film.getGenre()%>      Duration: <%=film.getDuration()%></h6>
-        <p class="card-text"><%=film.getDescription()%></p>
-        <h6 class="card-subtitle mb-2 text-muted">PEGI: <%=film.getPegi()%></h6>
+<body class="antialiased bg-gray-200 font-sans">
+<div class="flex items-center justify-center min-h-screen">
+    <div class="max-w-md md:max-w-2xl px-2">
+        <div class="bg-white shadow-xl rounded-lg overflow-hidden md:flex">
+            <div class="bg-cover bg-bottom h-56 md:h-auto md:w-56" style="background-image: url(<%=film.getTrailer()%>)">
+            </div>
+            <div>
+                <div class="p-4 md:p-5">
+                    <p class="font-bold text-xl md:text-2xl"><%=film.getFilmName()%></p>
+                    <p class="text-gray-700 md:text-lg"><%=film.getDescription()%></p>
+                </div>
+                <div class="p-4 md:p-5 bg-gray-100">
+                    <div class="sm:flex sm:justify-between sm:items-center">
+                        <div>
+                            <div class="text-lg text-gray-700"><span class="text-gray-900 font-bold"><%=film.getGenre()%></span> </div>
+                            <div class="flex items-center">
+                                <div class="text-gray-600 ml-2 text-sm md:text-base mt-1">Duration: <%=film.getDuration()%> min</div>
+                            </div>
+                        </div>
+                        <a href="/buyTicket?id=<%=film.getFilmID()%>"
+                           class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-indigo-700 hover:bg-indigo-600 font-bold text-white md:text-lg rounded-lg shadow-md">
 
-        <a href="/buyTicket?userID=<%=user.getUser_id()%>&filmID=<%=film.getFilmID()%>" class="btn btn-primary">Go somewhere</a>
+                        </a>
+                    </div>
+                    <div class="mt-3 text-gray-600 text-sm md:text-base">*Pegi: <%=film.getPegi()%></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
