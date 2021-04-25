@@ -15,6 +15,15 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
+<div class="container text-center">
+    <br>
+    <br>
+    <!-- Logo -->
+    <div class="logo">
+        <h1><b>TODAY ON CINEMA</b></h1>
+    </div>
+
+</div>
 <div style="margin: 50px auto; width: 80%">
     <div class="row row-cols-1 row-cols-md-3">
         <%
@@ -23,10 +32,10 @@
             filmList = filmDao.getFilms();
             for(Film film: filmList) {
         %>
-        <a href="/film?id=<%=film.getFilmID()%>">
-            <div class="profile-card-2"><img src="<%=film.getTrailer()%>" width="240" height="360">
-                <div class="profile-name"><%=film.getFilmName()%></div>
-                <div class="profile-username"><%=film.getGenre()%></div>
+        <a href="${pageContext.request.contextPath}/film?id=<%=film.getFilmID()%>">
+            <div class="profile-card-2"><img src="<%=film.getTrailer()%>" width="300" height="450">
+<%--                <div class="profile-name"><%=film.getFilmName()%></div>--%>
+<%--                <div class="profile-username"><%=film.getGenre()%></div>--%>
             </div>
         </a>
         <%
