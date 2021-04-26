@@ -13,8 +13,8 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<div class="container">] <div class=" text-center mt-5 ">
-    <h1>Bootstrap Contact Form</h1>
+<div class="container"> <div class=" text-center mt-5 ">
+    <h1>Add new Film</h1>
 </div>
     <div class="row ">
         <div class="col-lg-7 mx-auto">
@@ -54,8 +54,8 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- /.8 -->
-        </div> <!-- /.row-->
+            </div>
+        </div>
     </div>
 </div>
 </body>

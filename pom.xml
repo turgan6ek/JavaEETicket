@@ -50,6 +50,11 @@
             <artifactId>flyway-core</artifactId>
             <version>6.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.196</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -68,6 +73,16 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.0.3</version>
+                <configuration>
+                    <user>postgres</user>
+                    <password>madiloh</password>
+                    <schemas>
+                        <schema>
+                            public
+                        </schema>
+                    </schemas>
+                    <url>jdbc:postgresql://localhost:5432/ticket</url>
+                </configuration>
             </plugin>
         </plugins>
     </build>
