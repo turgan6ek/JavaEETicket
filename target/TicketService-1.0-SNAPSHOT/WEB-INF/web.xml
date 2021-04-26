@@ -8,12 +8,16 @@
             30
         </session-timeout>
     </session-config>
+    <servlet-mapping>
+        <servlet-name>TicketServlet</servlet-name>
+        <url-pattern>/buyTicket</url-pattern>
+    </servlet-mapping>
     <filter>
         <filter-name>Ticket Filter</filter-name>
         <filter-class>filter.TicketFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>Ticket Filter</filter-name>
-        <url-pattern>/login.jsp</url-pattern>
+        <url-pattern>/buyTicket</url-pattern>
     </filter-mapping>
 </web-app>

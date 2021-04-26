@@ -11,29 +11,30 @@
 <html>
 <head>
     <title><%=film.getFilmName()%></title>
-    <style>
-        .card-img-top {
-            width: 100%;
-            height: 30vw;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
-<br>
-<br>
-<br>
-<div class="card mb-3" style="width: 70%; margin: auto;">
-    <img class="card-img-top" src="<%=film.getTrailer()%>" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title"><%=film.getFilmName()%></h5>
-        <h6 class="card-subtitle mb-2">Genre: <%=film.getGenre()%>      Duration: <%=film.getDuration()%></h6>
-        <p class="card-text"><%=film.getDescription()%></p>
-        <h6 class="card-subtitle mb-2 text-muted">PEGI: <%=film.getPegi()%></h6>
 
-        <a href="/buyTicket?userID=<%=user.getUser_id()%>&filmID=<%=film.getFilmID()%>" class="btn btn-primary">Go somewhere</a>
+</head>
+<jsp:include page="header.jsp"></jsp:include>
+<body>
+<br>
+<br>
+<br>
+    <div class="container" style="width: 70%; margin: auto">
+        <div class="card mb-3" >
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="<%=film.getTrailer()%>" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=film.getFilmName()%></h5>
+                        <p class="card-text">Duration: <%=film.getDuration()%> Genre: <%=film.getFilmName()%></p>
+                        <p class="card-text"><%=film.getDescription()%></p>
+                        <p class="card-text"><small class="text-muted">*Pegi: <%=film.getPegi()%></small></p>
+                        <a href="${pageContext.request.contextPath}/buyTicket?id=<%=film.getFilmID()%>" class="btn btn-primary">Buy Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>

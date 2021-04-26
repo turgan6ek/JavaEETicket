@@ -22,10 +22,9 @@ public class TicketFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession httpSession = req.getSession();
-        String username = (String) httpSession.getAttribute("username");
-        Account account = accountDao.getAccount(username);
-        if (account == null) {
-            resp.sendRedirect("login.jsp");
+        Account account = (Account) httpSession.getAttribute("user");
+        if (account.getUsername() == null) {
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
         else {
             filterChain.doFilter(servletRequest, servletResponse);

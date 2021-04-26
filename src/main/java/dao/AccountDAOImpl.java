@@ -64,12 +64,12 @@ public class AccountDAOImpl implements AccountDao{
     }
 
     @Override
-    public Account getAccount(String username) {
+    public Account getAccount(Integer id) {
         Account account = new Account();
         try {
             conn = ConnProvider.getConn();
-            pst = conn.prepareStatement("SELECT * FROM accounts WHERE username = ?");
-            pst.setString(1, username);
+            pst = conn.prepareStatement("SELECT * FROM accounts WHERE user_id = ?");
+            pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 account.setUser_id(rs.getInt(1));
