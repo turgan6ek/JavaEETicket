@@ -31,7 +31,7 @@
         <div class="card">
             <img src="<%=ticket.getFilm().getTrailer()%>">
             <div class="descriptions">
-            <h1><%=ticket.getFilm().getFilmName()%>></h1>
+            <h1><%=ticket.getFilm().getFilmName()%> : <%=ticket.getTicketID()%></h1>
             <p>
             Bought at: <%=ticket.getStartDate()%>
             </p>

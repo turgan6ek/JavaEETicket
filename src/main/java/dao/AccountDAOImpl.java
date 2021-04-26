@@ -21,7 +21,7 @@ public class AccountDAOImpl implements AccountDao{
                 ps.setString(1, acc.getUsername());
                 ps.setString(2, acc.getPassword());
                 ps.setString(3, acc.getEmail());
-                ps.setString(4, acc.getPassword());
+                ps.setString(4, acc.getPhone_num());
                 ps.setInt(5, 2);
                 int numRowsAffected = ps.executeUpdate();
                 try (ResultSet rs = ps.getGeneratedKeys()) {

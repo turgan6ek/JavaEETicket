@@ -6,12 +6,15 @@ import entity.Film;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FilmDaoImpl implements FilmDao{
     static Connection conn;
     static PreparedStatement pst;
+    private static final String INSERT_SQL = "INSERT INTO films(film_name, duration_min, genre, pegi, film_description, film_trailer) values(?, ?, ?, ?, ?,?) ";
+
     @Override
     public List<Film> getFilms() {
         List<Film> films = new ArrayList<>();
@@ -39,7 +42,26 @@ public class FilmDaoImpl implements FilmDao{
 
     @Override
     public void insertAFilm(Film film) {
-
+        if (film != null) {
+            try (PreparedStatement ps = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setString(1, film.getFilmName());
+                ps.setInt(2, film.getDuration());
+                ps.setString(3, film.getGenre());
+                ps.setString(4, film.getPegi());
+                ps.setString(5, film.getDescription());
+                ps.setString(6, film.getTrailer());
+                int numRowsAffected = ps.executeUpdate();
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        film.setFilmID(rs.getInt(1));
+                    }
+                } catch (Exception s) {
+                    s.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
