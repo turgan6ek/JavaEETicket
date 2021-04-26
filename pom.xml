@@ -82,6 +82,7 @@
                         </schema>
                     </schemas>
                     <url>jdbc:postgresql://localhost:5432/ticket</url>
+                    <baselineOnMigrate>true</baselineOnMigrate>
                 </configuration>
             </plugin>
         </plugins>
