@@ -54,8 +54,8 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- /.8 -->
-        </div> <!-- /.row-->
+            </div>
+        </div>
     </div>
 </div>
 </body>
