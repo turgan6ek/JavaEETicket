@@ -25,7 +25,7 @@ public class NewFIlmServlet extends HttpServlet {
         String trailer = req.getParameter("trailer");
         String pegi = req.getParameter("pegi");
         String description = req.getParameter("description");
-        Integer duration = Integer.valueOf(req.getParameter("duraion"));
+        Integer duration = Integer.valueOf(req.getParameter("duration"));
         Film film = new Film();
         film.setFilmName(name);
         film.setGenre(genre);
