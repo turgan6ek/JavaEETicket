@@ -3,6 +3,7 @@
 <%@ page import="entity.Ticket" %>
 <%@ page import="entity.Film" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,19 +28,20 @@
             List<Ticket> ticketList;
             ticketList = ticketDao.getMyTickets(user.getUser_id());
             for(Ticket ticket: ticketList) {
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm");
+                String date = formatter.format(ticket.getFilm().getStartDate());
         %>
         <div class="card">
             <img src="<%=ticket.getFilm().getTrailer()%>">
             <div class="descriptions">
             <h1><%=ticket.getFilm().getFilmName()%> : <%=ticket.getTicketID()%></h1>
-            <p>
-            Bought at: <%=ticket.getStartDate()%>
-            </p>
                 <p>
                     Duration: <%=ticket.getFilm().getDuration()%>
                 </p>
                 <p>
-                    Price: <%=ticket.getPrice()%>
+                    Price: <%=ticket.getFilm().getPrice()%>
+                    <br>
+                    Starts at: <%=date%>
                 </p>
         </div>
         </div>

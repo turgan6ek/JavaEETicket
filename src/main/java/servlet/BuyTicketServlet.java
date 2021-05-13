@@ -30,8 +30,6 @@ public class BuyTicketServlet extends HttpServlet {
         TicketDao ticketDao = new TicketDaoImpl();
         Account account = (Account) req.getSession().getAttribute("user");
         Ticket ticket = new Ticket();
-        ticket.setPrice(1400.00);
-        ticket.setStartDate(new Date());
         ticket.setFilm(film);
         ticket.setAccount(account);
         ticketDao.newTicket(ticket);

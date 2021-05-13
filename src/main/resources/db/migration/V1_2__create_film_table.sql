@@ -5,5 +5,7 @@ CREATE TABLE IF NOT EXISTS films (
                                         genre varchar(255) NOT NULL,
                                         pegi varchar(30) NOT NULL,
                                         film_description text NOT NULL,
-                                        film_trailer text NOT NULL
+                                        film_trailer text NOT NULL,
+                                        price real NOT NULL,
+                                        start_date timestamp NOT NULL
 );

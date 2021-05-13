@@ -29,6 +29,8 @@
                         <h5 class="card-title"><%=film.getFilmName()%></h5>
                         <p class="card-text">Duration: <%=film.getDuration()%> Genre: <%=film.getFilmName()%></p>
                         <p class="card-text"><%=film.getDescription()%></p>
+                        <p class="card-text"><%=film.getPrice()%> tg</p>
+                        <p class="card-text"> Starts at: <%=film.getStartDate()%></p>
                         <p class="card-text"><small class="text-muted">*Pegi: <%=film.getPegi()%></small></p>
                         <a href="${pageContext.request.contextPath}/buyTicket?id=<%=film.getFilmID()%>" class="btn btn-primary">Buy Ticket</a>
                     </div>

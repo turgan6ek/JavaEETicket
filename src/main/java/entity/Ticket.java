@@ -6,19 +6,17 @@ public class Ticket {
     private Integer ticketID;
     private Film film;
     private Account account;
-    private Date startDate;
-    private Double price;
 
-    public Ticket(Integer ticketID, Film film, Account account, Date startDate, Double price) {
+    public Ticket(Integer ticketID, Film film, Account account) {
         this.ticketID = ticketID;
         this.film = film;
         this.account = account;
-        this.startDate = startDate;
-        this.price = price;
     }
-    public Ticket(Film film, Account account, Date startDate, Double price) {
-        this(null, film, account, startDate, price);
+
+    public Ticket(Film film, Account account) {
+        this(null, film, account);
     }
+
     public int getTicketID() {
         return ticketID;
     }
@@ -44,21 +42,5 @@ public class Ticket {
 
     public void setAccount(Account account) {
         this.account = account;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 }

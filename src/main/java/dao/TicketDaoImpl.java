@@ -17,7 +17,7 @@ public class TicketDaoImpl implements TicketDao{
     FilmDao filmDao = new FilmDaoImpl();
     static Connection conn;
     static PreparedStatement pst;
-    private static final String INSERT_SQL = "INSERT INTO tickets(user_id, film_id , start_date, price) values(?, ?, now(), ?) ";
+    private static final String INSERT_SQL = "INSERT INTO tickets(user_id, film_id) values(?, ?) ";
     @Override
     public List<Ticket> getMyTickets(Integer userID) {
         List<Ticket> tickets = new ArrayList<>();
@@ -34,8 +34,6 @@ public class TicketDaoImpl implements TicketDao{
                 ticket.setAccount(account);
                 Film film = filmDao.getFilmByID(rs.getInt(3));
                 ticket.setFilm(film);
-                ticket.setStartDate(rs.getTimestamp(4));
-                ticket.setPrice(rs.getDouble(5));
                 tickets.add(ticket);
             }
         }
@@ -56,7 +54,6 @@ public class TicketDaoImpl implements TicketDao{
             try (PreparedStatement ps = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, ticket.getAccount().getUser_id());
                 ps.setInt(2, ticket.getFilm().getFilmID());
-                ps.setDouble(3, ticket.getPrice());
                 int numRowsAffected = ps.executeUpdate();
                 try (ResultSet rs = ps.getGeneratedKeys()) {
                     if (rs.next()) {

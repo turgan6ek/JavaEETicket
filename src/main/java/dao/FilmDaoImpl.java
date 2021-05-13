@@ -3,17 +3,14 @@ package dao;
 import ConfigDB.ConnProvider;
 import entity.Film;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FilmDaoImpl implements FilmDao{
     static Connection conn;
     static PreparedStatement pst;
-    private static final String INSERT_SQL = "INSERT INTO films(film_name, duration_min, genre, pegi, film_description, film_trailer) values(?, ?, ?, ?, ?,?) ";
+    private static final String INSERT_SQL = "INSERT INTO films(film_name, duration_min, genre, pegi, film_description, film_trailer, price, start_date) values(?, ?, ?, ?, ?,?,?,?) ";
 
     @Override
     public List<Film> getFilms() {
@@ -31,6 +28,8 @@ public class FilmDaoImpl implements FilmDao{
                 film.setPegi(rs.getString(5));
                 film.setDescription(rs.getString(6));
                 film.setTrailer(rs.getString(7));
+                film.setPrice(rs.getDouble(8));
+                film.setStartDate(rs.getTimestamp(9));
                 films.add(film);
             }
         }
@@ -50,6 +49,8 @@ public class FilmDaoImpl implements FilmDao{
                 ps.setString(4, film.getPegi());
                 ps.setString(5, film.getDescription());
                 ps.setString(6, film.getTrailer());
+                ps.setDouble(7,film.getPrice());
+                ps.setTimestamp(8, (Timestamp) film.getStartDate());
                 int numRowsAffected = ps.executeUpdate();
                 try (ResultSet rs = ps.getGeneratedKeys()) {
                     if (rs.next()) {
@@ -80,6 +81,8 @@ public class FilmDaoImpl implements FilmDao{
                 film.setPegi(rs.getString(5));
                 film.setDescription(rs.getString(6));
                 film.setTrailer(rs.getString(7));
+                film.setPrice(rs.getDouble(8));
+                film.setStartDate(rs.getTimestamp(9));
             }
         }
         catch (Exception e) {

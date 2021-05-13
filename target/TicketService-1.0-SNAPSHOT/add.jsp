@@ -21,7 +21,7 @@
             <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
                     <div class="container">
-                        <form id="contact-form" role="form" action="newFilm">
+                        <form id="contact-form" role="form" action="newFilm" method="post">
                             <div class="controls">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -36,17 +36,26 @@
                                         <div class="form-group"> <label for="form_name">Link to the poster</label> <input id="trailer" type="text" name="trailer" class="form-control" placeholder="link" required="required"> </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_lastname">Pegi</label> <input id="Pegi" type="text" name="surname" class="form-control" placeholder="*" required="required"> </div>
+                                        <div class="form-group"> <label for="form_lastname">Pegi</label> <input id="pegi" type="text" name="pegi" class="form-control" placeholder="*" required="required"> </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_lastname">Duration</label> <input id="Duration" type="text" name="duration" class="form-control" placeholder="in minutes" required="required"> </div>
+                                        <div class="form-group"> <label for="form_lastname">Duration</label> <input id="duration" type="text" name="duration" class="form-control" placeholder="in minutes" required="required"> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_lastname">Price</label> <input id="price" type="text" name="price" class="form-control" placeholder="*" required="required"> </div>
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_lastname">Start time</label> <input id="datetime-local" type="datetime-local" name="date" class="form-control" required="required"> </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group"> <label for="form_message">Description</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write description here." rows="4" required="required"></textarea> </div>
+                                        <div class="form-group"> <label for="form_message">Description</label> <textarea id="form_message" name="description" class="form-control" placeholder="Write description here." rows="4" required="required"></textarea> </div>
                                     </div>
                                     <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Send Message"> </div>
                                 </div>
